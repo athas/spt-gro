@@ -1,0 +1,88 @@
+
+        ######             ##    ##                              ##
+     ###   ###       ####  ##    ## ###    ###                  ##
+   ##              ###    ##   #####    ####                   ##
+   ###                    ##     ##                            ##
+     ######   ####   ##   ##    ##       ##  ## ###  ##### ######  ###    #####
+          ## ##   #  ##  ##     ##       ##  ###   ###    ##   ## #  ## ##   ##
+##      ###  ##  ## ##   ##  ##  ##  ##  ## ##        ### ##   ## #  ## ##   ##
+ ########   #####   ##    ####    ####  ##  ##    ###   ## ####### ####  ######
+           ##                                       #####                    ##
+##       ##                                              ################## ##
+  #######                                              ##                  ##
+
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+*                          Spiltirsdag præsenterer:                           *
+*                          Gyldendals Røde Ordbøger                           *
+*                              (C) Gyldendal                                  *
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+*  Dato:   2010-07-05   *   Programtype:    Ordbog   *   Platform:     ALLE   *
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+
+Programdetaljer
+~~~~~~~~~~~~~~~
+Med Gyldendals download-ordbøger til Mac og Windows er det muligt at benytte 
+Gyldendals Røde Ordbøger offline... Men kun på Mac og Windows.
+
+Dette program viser hvordan ordbogsdataene kan tilgås uden brug af Gyldendals 
+medfølgende program. Kildekoden (Python) er fri, og vi opfordrer folk til at 
+lave deres egne ordbogsapplikationer. F.eks. ville en Android-udgave til 
+mobiltelefonen være oplagt. :)
+
+Vores program er i stand til at læse de fem frigivne download-ordbøger (engelsk, 
+fransk, spansk, svensk, tysk).
+
+Vi gør opmærksom på at det er strengt ulovligt at piratkopiere ordbogen og 
+benytte dette program. Hvis du kan lide sproget, så køb det!
+
+
+Brugsinstruktioner
+~~~~~~~~~~~~~~~~~~
+Placer programmet i samme mappe som datafilerne (.gdd og .dat). Kør programmet
+med en søgestreng som argument. F.eks. "./ordbog.py skinke". Mere info fåes ved
+kommandoen:
+
+% ./ordbog.py -h
+Usage: ordbog.py [options] SEARCH_STRING
+
+Blå og brugervenlig ordbog
+
+Options:
+  -h, --help            show this help message and exit
+  -l LANG, --lang=LANG  language (en, de, fr, es, se)
+  -p PATH, --path=PATH  path to data files (.dat and .gdd)
+
+
+Crew
+~~~~
+mzd885; bns895; dr. doktor; xpf894; npl306; rnv712;
+                                                                          Greets
+                                                                          ~~~~~~
+                                Kaptain DIKU; Arkimedes; skinke; dr. Z; din mor;
+Disses
+~~~~~~
+Microsoft Torsdag - accepter ikke underlødige efterligninger; Rodrigue - vogt
+jer mod kanoskippere med lurendrejertendeser; Vores l33t-inziderz @ LETsoftware;
+Cowi - lulz; Ond fysik; NOA; Phony Pwnies;
+
+
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+*                                  ________                                   *
+*                                 /    \   \                                  *
+*                    Spiltirsdag /      \   \ Siden 2007                      *
+*                                \      /   /                                 *
+*                                 \____/___/                                  *
+*                                                                             *  
+*                       Kontakt: spiltirsdag@diku.dk                          *
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+
+                            Vi søger i øjeblikket:
+
+                     * Grisefarme, med en produktionskapacitet 
+                       på +50 kilosvin i døgnet.
+                     * ECTS-point
+                     * Nye lokaler (fra midten af 2011)
+
+
