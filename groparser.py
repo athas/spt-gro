@@ -1,6 +1,7 @@
-#!/usr/bin/env python2.6
 # coding: utf-8
 from array import array
+import re
+#from copy import deepcopy
 
 KEY = [
 	0xBA, 0x59, 0xD9, 0xC2, 0x32, 0xB7, 0x21, 0x78, 0xB5, 0x86, 0x0C, 0x8C,
@@ -40,15 +41,7 @@ KEY = [
 	0xA8, 0x28, 0xAB, 0x78, 0xA0, 0xC5,
 ]
 
-def extract_from_file(file_path, offset, nbyte):
-	f = open(file_path, 'rb')
-	f.seek(offset)
-	data = array('B')
-	data.fromfile(f, nbyte)
-	f.close()
-	return data
-
-def parse_entry(file_path, entry_id, offset, nbyte):
+def parse_entry(entry_data, entry_id, offset, nbyte):
 	""" Hent artikel fra datafil
 
 	file_path = sti til datafilen
@@ -56,12 +49,48 @@ def parse_entry(file_path, entry_id, offset, nbyte):
 	offset = byte offset i filen
 	nbyte = antal af bytes der skal læses """
 
-#	print 'parse_entry(\'%s\',%d,%d,%d)'%(file_path, entry_id, offset, nbyte)
-	data = extract_from_file(file_path, offset, nbyte)
-
 	key_offset = ((entry_id + 0x170A8) * 1103) % 414
-	for i in range(len(data)):
-		data[i] ^= KEY[(i + key_offset) % 414]
+	for i in range(len(entry_data)):
+		entry_data[i] ^= KEY[(i + key_offset) % 414]
+	return entry_data.tostring()
 
-	return data.tostring()
+
+def entry_to_html(entry, entry_type):
+#	print entry
+	entry = entry.strip()
+#	entry = re.sub(r'<h3>', '<span style="font-size:11pt">', entry)
+#	entry = re.sub(r'</h3>', '</span>', entry)
+	entry = re.sub(r'</?font.*?>', '', entry)
+	if entry_type == 'lookup':
+		entry = re.sub(r'<h2>', '<span style="font-size:8pt">- ', entry)
+		entry = re.sub(r'</h2>', ' </span>', entry)
+		entry = re.sub(r'<h3>.*?</h3>', '<br/>', entry)
+	elif entry_type == 'collocation_lookup':
+		entry = re.sub(r'<h3>', '<span style="font-size:8pt">- ', entry)
+		entry = re.sub(r'</h3>', ' </span><br/>', entry)
+#		entry = re.sub(r'</h3>', '<br/>', entry)
+		entry = re.sub(r'</?div>', '', entry)
+	elif entry_type == 'reverse':
+		if entry.find('h2') == -1:
+			entry = re.sub(r'<h3>', '<span style="font-size:8pt">- ', entry)
+			entry = re.sub(r'</h3>', ' </span>', entry)
+		else:
+			entry = re.sub(r'<h2>', '<span style="font-size:8pt">- ', entry)
+			entry = re.sub(r'</h2>', ' </span>', entry)
+			entry = re.sub(r'<h3>.*?</h3>', '<br/>', entry)
+	entry = re.sub(r'\[LYD\]', '', entry)
+	entry = re.sub(r'\[INFO\]', '', entry)
+	entry = re.sub(r'<div>', '<span>', entry)
+	entry = re.sub(r'</div>', ' </span>', entry)
+#	entry = re.sub(r'<a href.*?>', '', entry)
+#	entry = re.sub(r'</a>', '', entry)
+	entry = re.sub(r'</?h[1-9]>', '', entry)
+#	entry = re.sub(r'</?i>', '', entry)
+#	entry = '- ' + entry
+	if entry.endswith('</ol>') or entry.endswith('</ul>'):
+		entry = entry + '<br/>'
+	else:
+		entry = entry + '<br/><br/>'			
+#	print '\n',entry,'\n\n'
+	return entry
 
